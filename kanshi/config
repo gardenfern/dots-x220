@@ -1,0 +1,3 @@
+profile builtin {
+	output "LVDS-1" enable
+}

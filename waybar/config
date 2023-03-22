@@ -1,0 +1,63 @@
+{
+	"layer": "top",
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-right": ["idle_inhibitor", "network", "pulseaudio", "battery", "clock"],
+  
+	"sway/workspaces": { 
+    "format": "{icon}",
+		"format-icons": {
+			"1": "browser",
+			"2": "term",
+			"3": "work",
+			"4": "games",
+			"5": "media",
+			"6": "music",
+			"7": "chat",
+			"8": "mail",
+			"9": "downloads",
+			"10": "misc"
+		}
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+    "format-icons": "vol <span color=\"#8da3b9\">|</span>",
+    "tooltip": false,
+    "on-click": "pavucontrol"
+	},
+  
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "!!!",
+      "deactivated": "zzz"
+    },
+    "tooltip": false
+  },
+
+	"network": {
+		"interface": "wlp3s0",
+		"format": "{icon} {essid}",
+    "format-icons": "wifi <span color=\"#8da3b9\">|</span>",
+    "tooltip": false,
+	},
+	
+	"clock": {
+		"format": "{:%H:%M}",
+    "timezone": "Australia/Perth",
+    "locale": "en_AU",
+    "tooltip": true,
+    "tooltip-format": "{:%A %d %B}"
+	},
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": "bat <span color=\"#8da3b9\">|</span>",
+    "tooltip": true,
+    "tooltip-format": "About {time} til empty",
+  },
+}]

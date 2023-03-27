@@ -4,12 +4,14 @@
 !/base16-shell/
 !/fish/
 !/foot/
+!/flavours/
 !/gtk-3.0/
 !/kanshi/
 !/mako/
 !/mpv/
 /mpv/watch_later
 !/nvim/
+!/rofi/
 !/sway/
 !/swaylock/
 !/swaynag/

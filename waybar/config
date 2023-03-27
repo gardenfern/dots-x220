@@ -21,6 +21,7 @@
 
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
+    "format-muted": "{icon} mute",
     "format-icons": "vol <span color=\"#8da3b9\">|</span>",
     "tooltip": false,
     "on-click": "pavucontrol"

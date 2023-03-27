@@ -1,11 +1,15 @@
 font=Noto Sans
-image=~/Pictures/Wallpapers/ferns3.jpg
+image=~/Pictures/Wallpapers/ferns.jpg
 
 ignore-empty-password
 
 indicator-radius=60
 indicator-thickness=15
 indicator-caps-lock
+
+# Start flavours
+## Base16 paradise
+## Author: Manas140
 
 text-color=#e8e3e3
 text-ver-color=#e8e3e3
@@ -31,3 +35,4 @@ ring-clear-color=#d9bc8c
 ring-wrong-color=#b66467
 
 separator-color=#00000000
+# End flavours

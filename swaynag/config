@@ -1,6 +1,10 @@
 font=envypn
 
 [warning]
+# Start flavours
+## Base16 paradise
+# Author: Manas140
+
 background=151515
 border=a988b0
 border-bottom=a988b0
@@ -8,6 +12,7 @@ button-background=151515
 text=e8e3e3
 button-text=e8e3e3
 details-background=151515
+# End flavours
 
 border-bottom-size=1
 message-padding=8

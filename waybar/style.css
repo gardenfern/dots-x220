@@ -1,3 +1,11 @@
+/* Start flavours */
+/*
+*
+* Base16 paradise
+* Author: Manas140
+*
+*/
+
 @define-color base00 #151515;
 @define-color base01 #1f1f1f;
 @define-color base02 #282828;
@@ -14,6 +22,7 @@
 @define-color base0D #8da3b9;
 @define-color base0E #a988b0;
 @define-color base0F #d9bc8c;
+/* End flavours */
 
 * {
     font-family: envypn;
@@ -35,8 +44,8 @@ tooltip label {
 }
 
 #workspaces button {
-    padding: 2px 8px;
-    margin: 8px 0px 0px 8px;
+    padding: 2px 6px;
+    margin: 6px 0px 0px 6px;
     border-radius: 0;
     border: 1px solid @base03;
     background: @base00;
@@ -47,19 +56,12 @@ tooltip label {
     border: 1px solid @base0B;
 }
 
-#clock, #battery, #network, #pulseaudio {
-    padding: 2px 8px;
+#clock, #battery, #network, #pulseaudio, #idle_inhibitor {
+    padding: 2px 6px;
     background: @base00;
     border-radius: 0;
     border: 1px solid @base0D;
-    margin: 8px 8px 0px 0px;
-}
-
-#idle_inhibitor {
-  padding: 2px 8px;
-  background: @base00;
-  border-radius: 0;
-  margin: 8px 8px 0px 0px;
+    margin: 6px 6px 0px 0px;
 }
 
 #idle_inhibitor.activated {
@@ -83,9 +85,9 @@ tooltip label {
 }
 
 #mode {
-  padding: 2px 8px;
+  padding: 2px 6px;
   background: @base00;
   border-radius: 0;
   border: 1px solid @base0E;
-  margin: 8px 0px 0px 0px;
+  margin: 6px 0px 0px 6px;
 }

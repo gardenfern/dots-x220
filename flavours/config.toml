@@ -1,0 +1,47 @@
+[[item]]
+file = "~/.config/foot/foot.ini"
+template = "foot"
+rewrite = false
+
+[[item]]
+file = "~/.config/mako/config"
+template = "mako"
+rewrite = false
+hook = "makoctl reload"
+
+[[item]]
+file = "~/.config/sway/config"
+template = "sway"
+subtemplate = "colors"
+rewrite = false
+hook = "swaymsg reload"
+light = false
+
+[[item]]
+file = "~/.config/swaylock/config"
+template = "swaylock"
+rewrite = false
+
+[[item]]
+file = "~/.config/tmux/config"
+template = "tmux"
+rewrite = false
+
+[[item]]
+file = "~/.config/waybar/style.css"
+template = "waybar"
+rewrite = false
+start = "/* Start flavours */"
+end = "/* End flavours */"
+
+[[item]]
+file = "~/.config/swaynag/config"
+template = "swaynag"
+rewrite = false
+
+[[item]]
+file = "~/.config/rofi/config.rasi"
+template = "rofi"
+rewrite = false
+start = "/* Start flavours */"
+end = "/* End flavours */"

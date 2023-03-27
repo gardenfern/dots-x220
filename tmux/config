@@ -1,3 +1,8 @@
+# Start flavours
+# Base16 paradise
+# Scheme author: Manas140
+# Template author: Tinted Theming: (https://github.com/tinted-theming)
+
 # default statusbar colors
 set-option -g status-style "fg=#e8e3e3,bg=#1f1f1f"
 
@@ -26,3 +31,4 @@ set-window-option -g mode-style "fg=#e8e3e3,bg=#282828"
 
 # bell
 set-window-option -g window-status-bell-style "fg=#1f1f1f,bg=#b66467"
+# End flavours

@@ -7,23 +7,28 @@ set $up k
 set $right l
 
 set $term foot
-set $menu $HOME/.bin/fuzzel.sh
+set $menu rofi -show drun
 
 set $volup pactl set-sink-volume @DEFAULT_SINK@ +1% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock
 set $voldown pactl set-sink-volume @DEFAULT_SINK@ -1% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock
-set $volmute pactl set-sink-mute @DEFAULT_SINK@ toggle && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock
+set $volmute pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $micmute pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 set $play playerctl play-pause 
 set $next playerctl next
 set $prev playerctl previous
 
-set $lightup light -A 10 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.sock
-set $lightdown light -U 10 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.sock
+set $lightup light -A 5 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.sock
+set $lightdown light -U 5 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.sock
 
 ### Output configuration
 output * bg $HOME/Pictures/Wallpapers/ferns.jpg fill
 
 font envypn 10
+
+# Start flavours
+## Base16 paradise
+# Author: Manas140
 
 set $base00 #151515
 set $base01 #1f1f1f
@@ -41,6 +46,7 @@ set $base0C #8aa6a2
 set $base0D #8da3b9
 set $base0E #a988b0
 set $base0F #d9bc8c
+# End flavours
 
 client.focused          $base0B $base00 $base05 $base0B $base0B
 client.focused_inactive $base01 $base01 $base05 $base01 $base01
@@ -50,7 +56,7 @@ client.urgent           $base08 $base08 $base00 $base08 $base08
 seat seat0 xcursor_theme retrosmart-xcursor-black-color-shadow 10
 default_border pixel 1
 default_floating_border pixel 1
-gaps inner 8
+gaps inner 6
 
 ### Idle configuration
  exec swayidle -w \
@@ -64,6 +70,10 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 	repeat_delay 250
 }
 
+input "2:10:TPPS/2_IBM_TrackPoint" {
+  pointer_accel -0.40
+}
+
 input "17498:4641:DZTECH_DZ60RGB_ANSI" {
   repeat_rate 30
   repeat_delay 250
@@ -74,6 +84,7 @@ focus_follows_mouse no
 ### Key bindings
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
+bindsym $mod+Period exec rofi -show emoji
 
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
@@ -86,6 +97,7 @@ bindsym Mod4+Shift+Alt+p exec grimshot --notify save window $HOME/Pictures/Scree
 bindsym --locked XF86AudioRaiseVolume exec $volup
 bindsym --locked XF86AudioLowerVolume exec $voldown
 bindsym --locked XF86AudioMute exec $volmute
+bindsym --locked XF86AudioMicMute exec $micmute
 
 bindsym --locked XF86AudioPlay exec $play
 bindsym --locked XF86AudioPrev exec $prev
@@ -95,7 +107,10 @@ bindsym --locked XF86MonBrightnessUp exec $lightup
 bindsym --locked XF86MonBrightnessDown exec $lightdown
 
 bindsym XF86Screensaver exec swaylock -f
+bindsym XF86Battery exec "sudo tlp bat && notify-send 'TLP' 'Mode: Bat'"
+bindsym XF86Launch1 exec "sudo tlp ac && notify-send 'TLP' 'Mode: AC'"
 bindsym XF86Display exec swaymsg output LVDS-1 toggle
+bindsym XF86TouchpadToggle exec swaymsg input '2:7:SynPS/2_Synaptics_TouchPad' events toggle
 
 floating_modifier $mod normal
 
@@ -175,10 +190,10 @@ bar {
 ### Services
 exec kanshi
 exec mako
-exec syncthing
-exec udiskie -a -n -T- F --no-terminal
+exec syncthing serve --no-browser
+exec udiskie -a -n -T -F --no-terminal
 exec wlsunset -l -31.0 -L 115.8
-exec tail -f $XDG_RUNTIME_DIR/wob.sock | wob
+exec "sh -c 'tail -f $XDG_RUNTIME_DIR/wob.sock | wob'"
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*

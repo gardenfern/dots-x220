@@ -8,6 +8,12 @@ border-size=1
 
 default-timeout=10000
 
+# Start flavours
+## Base16 paradise
+# Author: Manas140
+#
+# You can use these variables anywhere in the mako configuration file.
+
 background-color=#151515
 text-color=#e8e3e3
 border-color=#8da3b9
@@ -21,3 +27,4 @@ border-color=#8da3b9
 background-color=#151515
 text-color=#b66467
 border-color=#8da3b9
+# End flavours

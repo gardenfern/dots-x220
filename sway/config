@@ -7,7 +7,8 @@ set $up k
 set $right l
 
 set $term foot
-set $menu rofi -show drun
+set $menu rofi_path | rofi -show drun | xargs swaymsg exec --
+set $emoji_menu rofi_path | rofi -show emoji | xargs swaymsg exec --
 
 set $volup pactl set-sink-volume @DEFAULT_SINK@ +1% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock
 set $voldown pactl set-sink-volume @DEFAULT_SINK@ -1% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock
@@ -18,8 +19,8 @@ set $play playerctl play-pause
 set $next playerctl next
 set $prev playerctl previous
 
-set $lightup light -A 5 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.sock
-set $lightdown light -U 5 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.sock
+set $lightup light -A 10 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.sock
+set $lightdown light -U 10 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.sock
 
 ### Output configuration
 output * bg $HOME/Pictures/Wallpapers/ferns.jpg fill
@@ -84,7 +85,7 @@ focus_follows_mouse no
 ### Key bindings
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
-bindsym $mod+Period exec rofi -show emoji
+bindsym $mod+Period exec $emoji_menu
 
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
@@ -195,5 +196,6 @@ exec udiskie -a -n -T -F --no-terminal
 exec wlsunset -l -31.0 -L 115.8
 exec "sh -c 'tail -f $XDG_RUNTIME_DIR/wob.sock | wob'"
 exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec dbus-update-activation-environment --all
 
 include /etc/sway/config.d/*

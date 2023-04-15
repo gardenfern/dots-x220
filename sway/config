@@ -25,7 +25,7 @@ set $lightdown light -U 10 && light -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/wob.so
 ### Output configuration
 output * bg $HOME/Pictures/Wallpapers/ferns.jpg fill
 
-font envypn 10
+font cozette 9
 
 # Start flavours
 ## Base16 paradise
@@ -194,7 +194,7 @@ exec mako
 exec syncthing serve --no-browser
 exec udiskie -a -n -T -F --no-terminal
 exec wlsunset -l -31.0 -L 115.8
-exec "sh -c 'tail -f $XDG_RUNTIME_DIR/wob.sock | wob'"
+exec /home/fern/.config/sway/wob.sh
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec dbus-update-activation-environment --all
 

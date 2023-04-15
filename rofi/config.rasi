@@ -1,6 +1,6 @@
 configuration {
   modes: "drun,emoji";
-  font: "envypn 10";
+  font: "Cozette 9";
   show-icons: true;
 	icon-theme: "Papirus-Dark";
 	drun-display-format: "{name}";

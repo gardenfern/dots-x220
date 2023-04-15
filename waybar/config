@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"modules-left": ["sway/workspaces", "sway/mode"],
-	"modules-right": ["idle_inhibitor", "network", "pulseaudio", "battery", "clock"],
+	"modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "clock"],
   
 	"sway/workspaces": { 
     "format": "{icon}",
@@ -21,8 +21,12 @@
 
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
-    "format-muted": "{icon} mute",
-    "format-icons": "vol <span color=\"#8da3b9\">|</span>",
+    "format-muted": "<span color=\"#3b3b3b\">婢</span>",
+    "format-icons": [
+      "<span color=\"#8da3b9\">奄</span>",
+      "<span color=\"#8da3b9\">奔</span>",
+      "<span color=\"#8da3b9\">墳</span>",
+    ],
     "tooltip": false,
     "on-click": "pavucontrol"
 	},
@@ -30,8 +34,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "!!!",
-      "deactivated": "zzz"
+      "activated": "<span color=\"#a988b0\"></span>",
+      "deactivated": "<span color=\"#3b3b3b\"></span>"
     },
     "tooltip": false
   },
@@ -39,7 +43,7 @@
 	"network": {
 		"interface": "wlp3s0",
 		"format": "{icon} {essid}",
-    "format-icons": "wifi <span color=\"#8da3b9\">|</span>",
+    "format-icons": "<span color=\"#8da3b9\"></span>",
     "tooltip": false,
 	},
 	
@@ -57,7 +61,15 @@
       "critical": 15
     },
     "format": "{icon} {capacity}%",
-    "format-icons": "bat <span color=\"#8da3b9\">|</span>",
+    "format-charging": "<span color=\"#8c977d\"></span> {capacity}%",
+    "format-icons": [
+      "<span color=\"#8da3b9\"></span>",
+      "<span color=\"#8da3b9\"></span>",
+      "<span color=\"#8da3b9\"></span>",
+      "<span color=\"#8da3b9\"></span>",
+      "<span color=\"#8da3b9\"></span>",
+      "<span color=\"#8da3b9\"></span>",
+    ],
     "tooltip": true,
     "tooltip-format": "About {time} til empty",
   },
